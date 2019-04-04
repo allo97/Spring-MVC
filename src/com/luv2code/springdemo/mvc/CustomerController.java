@@ -21,7 +21,7 @@ public class CustomerController {
 	
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
-		//pre process every String Form Data
+		//pre-process every String Form Data
 		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
 		
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
@@ -40,6 +40,11 @@ public class CustomerController {
 			BindingResult theBindingResult) {
 		
 		System.out.println("Last name: |" + theCustomer.getLastName() + "|");
+		System.out.println("Free Passes: " + theCustomer.getFreePasses());
+		System.out.println("Postal Code: " + theCustomer.getPostalCode());
+		System.out.println("Binding result " + theBindingResult);
+		
+		System.out.println("\n\n\n\n\n\n\n\n");
 		
 		if(theBindingResult.hasErrors()) {
 			return "customer-form";
